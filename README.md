@@ -13,6 +13,7 @@ COMP9340 – Computer Security Course - 2025
   * Saved models (Machine and Deep Learning).
   * [Checkpoints](https://www.dropbox.com/scl/fo/yg306y5df9y5eyjp9mz72/AKbDfF1MVBljfVSORMXKsC4?rlkey=wgv7mnhscnbvij32v12qd8lgo&dl=0) for trained LLM models.
 ---
+<pre><code>
 
 .
 ├── src/
@@ -82,7 +83,7 @@ COMP9340 – Computer Security Course - 2025
 │   └── main.py
 ├── algorithms.json  # If this is a config file related to algorithms, it stays.
 └── README.md
-
+</code></pre>
 
 
 This project, "Evaluating Artificial Intelligent models for IoT Network Intrusion Detection: An Analysis of Performance and Time Efficiency," aims to develop, implement, and rigorously evaluate various Artificial Intelligence (AI) models for detecting intrusions within Internet of Things (IoT) networks. Given the increasing proliferation of IoT devices and their inherent security vulnerabilities, an effective and efficient Intrusion Detection System (IDS) is paramount. This project specifically focuses on analyzing both the performance (accuracy, precision, recall, F1-score) and time efficiency (training time, detection latency, resource consumption) of different AI models when applied to real-world IoT network traffic.
