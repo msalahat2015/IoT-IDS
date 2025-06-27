@@ -13,9 +13,8 @@ COMP9340 – Computer Security Course - 2025
   * Saved models (Machine and Deep Learning).
   * [Checkpoints](https://www.dropbox.com/scl/fo/yg306y5df9y5eyjp9mz72/AKbDfF1MVBljfVSORMXKsC4?rlkey=wgv7mnhscnbvij32v12qd8lgo&dl=0) for trained LLM models.
 ---
+## Project Structure 
 <pre><code>
-
-.
 ├── src/
 │   ├── algorithms/
 │   │   ├── _pycache_/
