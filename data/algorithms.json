@@ -1,0 +1,341 @@
+[
+   {
+    "label": "LOFClass",
+    "algorithm": "LOFClass",
+    "params": {
+      "n_neighbors": 20,
+       "contamination": 0.1 
+    }
+  },
+      {
+        "label": "LightGBM",
+        "algorithm": "LightGBM",
+        "params": {
+            "n_estimators": 100
+        }
+    },
+  {
+    "label": "MultinomialNB",
+    "algorithm": "NaiveBayes",
+    "params": {
+        "alpha": 1.0
+    },
+    "nb_type": "multinomial"
+},
+   {
+  "label": "IsolationForestClass",
+  "algorithm": "IsolationForestClass",
+  "params": {
+    "random_state": 42,
+    "n_estimators": 100,
+    "contamination": "auto"
+  }
+},
+   {
+    "label": "lstm",
+    "algorithm": "lstm",
+    "params": {
+        "units": 64,
+        "activation": "relu",
+        "return_sequences": true,
+        "input_shape": [1, 29], 
+        "epochs": 10,
+        "batch_size": 32,
+        "dropout_rate": 0.2,
+        "learning_rate": 0.001,
+        "num_classes": 2
+    }
+},
+  {
+        "label": "RNN",
+        "algorithm": "rnn",
+        "params": {
+            "units": 64,
+            "activation": "tanh",
+            "recurrent_activation": "sigmoid",
+            "use_bias": true,
+            "kernel_initializer": "glorot_uniform",
+            "recurrent_initializer": "orthogonal",
+            "bias_initializer": "zeros",
+            "dropout": 0.0,
+            "recurrent_dropout": 0.0,
+            "input_shape": [1, 29],
+            "optimizer": "adam",
+            "learning_rate": 0.001,
+            "loss": "categorical_crossentropy",
+            "metrics": ["accuracy"],
+            "epochs": 10,
+            "batch_size": 32,
+            "num_classes": 4
+        }
+    },   
+ {
+    "label": "StackingClassifier",
+    "algorithm": "StackingClassifier",
+    "params": {
+        "layers": [
+            {
+                "estimators": [
+                    {
+                        "name": "lr",
+                        "model": "sklearn.linear_model.LogisticRegression",
+                        "random_state": 1,
+                        "C": 0.1
+                    },
+                    {
+                        "name": "dt",
+                        "model": "sklearn.tree.DecisionTreeClassifier",
+                        "random_state": 1,
+                        "max_depth": 3
+                    },
+                    {
+                        "name": "svc",
+                        "model": "sklearn.svm.SVC",
+                        "random_state": 1,
+                        "probability": true,
+                        "kernel": "rbf"
+                    }
+                ]
+            }
+        ],
+        "meta_model_params": {
+            "hidden_units": [128, 64], 
+            "dropout_rate": 0.2, 
+            "optimizer": "adam", 
+            "learning_rate": 0.001
+        },
+        "cv_folds": 5, 
+        "one_hot_encode": true 
+    }
+},    
+{
+    "label": "VotingClassifierModel",
+    "algorithm": "VotingClassifierModel",
+    "params": {
+        "method": "soft",
+        "estimators": [
+            {
+                "name": "lr",
+                "model": "sklearn.linear_model.LogisticRegression",
+                "random_state": 1,
+                "C": 0.1
+            },
+            {
+                "name": "dt",
+                "model": "sklearn.tree.DecisionTreeClassifier",
+                "random_state": 1,
+                "max_depth": 3
+            },
+            {
+                "name": "svc",
+                "model": "sklearn.svm.SVC",
+                "random_state": 1,
+                "probability": true,
+                "kernel": "rbf"
+            }
+        ],
+        "weights": [1, 1, 1]
+    }
+},
+   
+    
+   
+    
+   
+   
+    {
+        "label": "CNN",
+        "algorithm": "cnn",
+        "params": {
+            "input_shape": [ 29,1],
+            "filters": 64,
+            "kernel_size": 3,
+            "pooling_size": 2,
+            "dropout_rate": 0.2,
+            "optimizer": "adam",
+            "learning_rate": 0.001,
+            "num_classes": 4,
+            "num_conv_layers": 2,
+            "epochs": 1,
+            "batch_size": 32,
+            "validation_split": 0.2,
+            "num_time_steps": 29,
+            "features_per_step" : 1,
+            "padding":"valid"
+        }
+    },
+    {
+        "label": "ANN",
+        "algorithm": "ANN",
+        "params": {
+            "input_dim": 29, 
+            "hidden_units": [128, 64, 32],
+            "output_dim": 1,
+            "activation": "relu",
+            "optimizer": "adam",
+            "num_classes":4,
+            "loss": "categorical_crossentropy"
+        }
+    },
+    {
+        "label": "DNN",
+        "algorithm": "dnn",
+        "params": {
+            "input_shape": [29],
+            "hidden_units": [128, 64],
+            "dropout_rate": 0.2,
+            "optimizer": "adam",
+            "learning_rate": 0.001,
+            "num_classes": 4,
+            "epochs": 3,
+            "batch_size": 32,
+            "validation_split": 0.2
+        }
+    },
+    
+    {
+        "label": "Autoencoder",
+        "algorithm": "Autoencoder",
+        "params": {
+          "encoding_dim": 29,
+          "hidden_units": [128, 64],
+          "epochs": 50,
+          "batch_size": 32,
+          "activation": "relu"
+        }
+    },
+    {
+        "label": "RandomForestClassifier",
+        "algorithm": "RandomForestClassifier",
+        "params": {
+            "n_estimators": 100,
+            "max_depth": 10,
+            "random_state": 42
+        }
+    },
+    {
+        "label": "RandomForestClassifier",
+        "algorithm": "Random Forest - Weight",
+        "params": {
+            "n_estimators": 100,
+            "class_weight":"balanced",
+            "random_state": 42
+        }
+    },
+    {
+        "label": "RandomForestClassifier",
+        "algorithm": "Random Forest - Bagging",
+        "params": {
+            "n_estimators": 100,
+            "replacement":true,
+            "sampling_strategy":"all",
+            "random_state": 42
+        }
+    },
+    {
+        "label": "LogisticRegression",
+        "algorithm": "LogisticRegression",
+        "params": {
+            "max_iter": 500
+        }
+    },
+    {
+        "label": "DecisionTreeClassifier",
+        "algorithm": "DecisionTreeClassifier",
+        "params": {
+            "max_depth": 5,
+            "random_state": 42
+        }
+    },
+    
+    {
+        "label": "XGBoostClassifier",
+        "algorithm": "XGBoostClassifier",
+        "params": {
+          "n_estimators": 150,
+          "learning_rate": 0.1,
+          "max_depth": 3,
+          "random_state": 42
+        }
+    }
+    ,
+    {
+        "label": "GradientBoostingClassifier",
+        "algorithm": "GradientBoostingClassifier",
+        "params": {
+            "n_estimators": 100,
+            "learning_rate": 0.1,
+            "max_depth": 3,
+            "random_state": 42
+        }
+    },
+    {
+        "label": "MLP",
+        "algorithm": "MLP",
+        "params": {
+          "hidden_layer_sizes": [100, 50],
+          "max_iter": 500,
+          "random_state": 42
+        }
+    },
+    {
+        "label": "Perceptron",
+        "algorithm": "Perceptron",
+        "params": {
+            "max_iter": 1000,
+            "tol": 1e-3,
+            "random_state": 42
+        }
+    },
+    {
+        "label": "Adaboost",
+        "algorithm": "Adaboost",
+        "params": {
+            "n_estimators": 100
+        }
+    },
+    {
+        "label": "ExtraTreesClassifier",
+        "algorithm": "ExtraTreesClassifier",
+        "params": {
+            "n_estimators": 100,
+            "random_state": 42
+        }
+    },
+    
+    {
+        "label": "GaussianNB",
+        "algorithm": "GaussianNB",
+        "params": {
+        }
+    },
+    {
+        "label": "KNN",
+        "algorithm": "KNN",
+        "params": {
+            "n_neighbors": 5,
+            "weights": "uniform"
+        }
+    },
+    {
+        "label": "BalancedSVM",
+        "algorithm": "BalancedSVM",
+        "params": {
+            "C": 1,
+            "kernel":"rbf",
+            "class_weight" : "balanced",
+            "gamma" : "scale",
+            "random_state": 42   
+        }
+    },
+    {
+        "label": "WeightedSVM",
+        "algorithm": "WeightedSVM",
+        "params": {
+            "C": 1,
+            "kernel":"rbf",
+            "gamma" : "scale",
+            "random_state": 42   
+        }
+    }
+]

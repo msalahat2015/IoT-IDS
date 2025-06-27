@@ -1,0 +1,9 @@
+numpy         # For numerical computations
+scikit-learn  # For machine learning algorithms
+pandas        # For data manipulation and analysis
+tensorflow    # For deep learning (if used)
+xgboost       # For gradient boosting
+lightgbm      # Another gradient boosting framework
+matplotlib    # For plotting
+seaborn       # For statistical data visualization
+ipython       # For interactive computing (Jupyter)
