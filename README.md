@@ -1,4 +1,4 @@
-## Evaluating Artificial Intelligence models for IoT Network Intrusion Detection: An Analysis of Performance and Time Efficiency
+## Benchmarking AI models for IoT Network Intrusion Detection:An Analysis of Performance and Time Efficiency
 
 COMP9340 – Computer Security Course - 2025
 
